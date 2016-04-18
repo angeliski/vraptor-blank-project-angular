@@ -35,7 +35,7 @@ public class TodoController {
 		this.todoRepository = todoRepository;
 	}
 
-	@Get("/")
+	@Get("")
 	public void get() {
 		result.use(Results.json()).withoutRoot().from(todoRepository.findAll())
 				.serialize();
@@ -49,7 +49,7 @@ public class TodoController {
 	}
 
 	@Consumes(value = "application/json", options = WithoutRoot.class)
-	@Post("/")
+	@Post("")
 	public void create(Todo todo) {
 		result.use(Results.json()).withoutRoot()
 				.from(todoRepository.create(todo)).serialize();
@@ -57,7 +57,7 @@ public class TodoController {
 	}
 
 	@Consumes(value = "application/json", options = WithoutRoot.class)
-	@Put("/")
+	@Put("")
 	public void update(Todo todo) {
 		result.use(Results.json()).withoutRoot()
 				.from(todoRepository.update(todo)).serialize();
